@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">-->
+    <title>Customer page</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/home-style.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css}">
+
+</head>
+<body>
+<br>
+<div class="topnav sticky">
+    <center><h2>Shop More Stores</h2></center>
+    <a href="/">Home</i></a>
+    <a href="/cart">Cart</i></a>
+    <a href="">WishList  <i class='fab fa-elementor'></i></a>
+    <a href="/login">Logout</i></a>
+</div>
+<br>
+<h1>Welcome To Shop More Stores <span th:text="${userLogin}"></span></h1>
+<div align="center">
+    <table border="1" cellpadding="10">
+        <thead>
+        <tr>
+            <!--            <th>Product ID</th>-->
+            <th>Name</th>
+            <th>Brand</th>
+            <th>Made In</th>
+            <th>Price</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="product : ${listProducts}">
+            <!--            <td th:text="${product.id}">Product ID</td>-->
+            <td th:text="${product.name}">Name</td>
+            <td th:text="${product.brand}">Brand</td>
+            <td th:text="${product.madein}">Made in</td>
+            <td th:text="${product.price}">Price</td>
+            <td><a th:href="@{'/addToCart/' + ${product.id}}">Add to cart</a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
